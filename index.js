@@ -48,7 +48,8 @@ const verifyJWT = (req, res, next) => {
 async function run() {
   try {
     // Connect the client to the server	(optional starting in v4.7)
-    await client.connect();
+     client.connect();
+    client.db("admin").command({ ping: 1 });
     // Send a ping to confirm a successful connection
     const database = client.db("b9a11-server-side-jritu4h");
     const volunteer = database.collection("volunteer");
